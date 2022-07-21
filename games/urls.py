@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from pokemon.views import get_pokemon, get_pokemons, PokeListAPIView
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("pokemon/<int:pokemon_id>/", get_pokemon, name="p"),
+    path("pokemons/path/", get_pokemons, ),
+    path("pokeapi/", PokeListAPIView.as_view(),),
 ]
